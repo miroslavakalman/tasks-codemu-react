@@ -1098,27 +1098,360 @@ import React, { useState }from 'react';
 // }
 
 //71
-const initDate = {
-  year: 2025,
-  month: 12,
-  day: 31,
-};
+// const initDate = {
+//   year: 2025,
+//   month: 12,
+//   day: 31,
+// };
+
+// function App() {
+//   const [date, setDate] = useState(initDate);
+
+//   function getDayOfWeek(year, month, day) {
+//       const dateObject = new Date(year, month - 1, day);
+//       const options = { weekday: 'long' };
+//       return new Intl.DateTimeFormat('ru-RU', options).format(dateObject);
+//   }
+
+//   return (
+//       <div>
+//           <p>Год: {date.year}</p>
+//           <p>Месяц: {date.month}</p>
+//           <p>День: {date.day}</p>
+//           <p>День недели: {getDayOfWeek(date.year, date.month, date.day)}</p>
+//       </div>
+//   );
+// }
+
+//Данные
+//73
+// function App() {
+//   const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
+//   const [inputValue, setInputValue] = useState('');
+
+//   const handleAddNote = () => {
+//       const newNote = inputValue.trim(); 
+//       if (newNote !== '') {
+//           setNotes([...notes, newNote]);
+//           setInputValue('');
+//       }
+//   };
+
+//   const handleInputChange = (e) => {
+//       setInputValue(e.target.value); 
+//   };
+
+//   return (
+//       <div>
+//           <ul>
+//               {notes.map((note, index) => (
+//                   <li key={index}>{note}</li>
+//               ))}
+//           </ul>
+//           <button onClick={() => handleAddNote()}>Добавить элемент в конец массива</button>
+//           <br />
+//           <input type="text" value={inputValue} onChange={handleInputChange} />
+//           <button onClick={handleAddNote}>Добавить элемент из инпута в конец массива</button>
+//       </div>
+//   );
+// }
+
+//74
+// function App() {
+//   const [numbers, setNumbers] = useState([1, 2, 3, 4, 5]);
+//   const [inputValue, setInputValue] = useState('');
+
+//   const handleSquare = (index) => {
+//       const newNumbers = [...numbers];
+//       newNumbers[index] = newNumbers[index] ** 2;
+//       setNumbers(newNumbers);
+//   };
+
+//   const handleDelete = (index) => {
+//       const newNumbers = [...numbers];
+//       newNumbers.splice(index, 1);
+//       setNumbers(newNumbers);
+//   };
+
+//   const handleInputClick = (number) => {
+//       setInputValue(number);
+//   };
+
+//   const handleInputChange = (e) => {
+//       setInputValue(e.target.value);
+//   };
+
+//   const handleInputBlur = (index) => {
+//       const newNumbers = [...numbers];
+//       newNumbers[index] = inputValue;
+//       setNumbers(newNumbers);
+//   };
+
+//   const handleReverse = () => {
+//       setNumbers([...numbers].reverse());
+//   };
+
+//   return (
+//       <div>
+//           <ul>
+//               {numbers.map((number, index) => (
+//                   <li key={index}>
+//                       {number}
+//                       <button onClick={() => handleSquare(index)}>В квадрат</button>
+//                       <button onClick={() => handleDelete(index)}>Удалить</button>
+//                       <input
+//                           type="text"
+//                           value={inputValue}
+//                           onClick={() => handleInputClick(number)}
+//                           onChange={handleInputChange}
+//                           onBlur={() => handleInputBlur(index)}
+//                       />
+//                   </li>
+//               ))}
+//           </ul>
+//           <button onClick={handleReverse}>Перевернуть порядок</button>
+//       </div>
+//   );
+// }
+
+//75
+// const initNotes = [
+//   {
+//       id: 'GYi9G_uC4gBF1e2SixDvu',
+//       prop1: 'value11',
+//       prop2: 'value12',
+//       prop3: 'value13',
+//   },
+//   {
+//       id: 'IWSpfBPSV3SXgRF87uO74',
+//       prop1: 'value21',
+//       prop2: 'value22',
+//       prop3: 'value23',
+//   },
+//   {
+//       id: 'JAmjRlfQT8rLTm5tG2m1L',
+//       prop1: 'value31',
+//       prop2: 'value32',
+//       prop3: 'value33',
+//   },
+// ];
+
+// function App() {
+//   const [notes, setNotes] = useState(initNotes);
+//   const [inputValues, setInputValues] = useState({
+//       prop1: '',
+//       prop2: '',
+//       prop3: '',
+//   });
+
+//   const handleAddNote = () => {
+//       const newNote = {
+//           id: Math.random().toString(36).substr(2, 9), 
+//           prop1: inputValues.prop1,
+//           prop2: inputValues.prop2,
+//           prop3: inputValues.prop3,
+//       };
+//       setNotes([...notes, newNote]);
+//       setInputValues({ prop1: '', prop2: '', prop3: '' });
+//   };
+
+//   const handleInputChange = (e) => {
+//       setInputValues({
+//           ...inputValues,
+//           [e.target.name]: e.target.value,
+//       });
+//   };
+
+//   return (
+//       <div>
+//           <ul>
+//               {notes.map((note) => (
+//                   <li key={note.id}>
+//                       <span>{note.prop1}</span>
+//                       <span>{note.prop2}</span>
+//                       <span>{note.prop3}</span>
+//                   </li>
+//               ))}
+//           </ul>
+//           <input
+//               type="text"
+//               name="prop1"
+//               value={inputValues.prop1}
+//               onChange={handleInputChange}
+//               placeholder="Введите значение для prop1"
+//           />
+//           <input
+//               type="text"
+//               name="prop2"
+//               value={inputValues.prop2}
+//               onChange={handleInputChange}
+//               placeholder="Введите значение для prop2"
+//           />
+//           <input
+//               type="text"
+//               name="prop3"
+//               value={inputValues.prop3}
+//               onChange={handleInputChange}
+//               placeholder="Введите значение для prop3"
+//           />
+//           <button onClick={handleAddNote}>Добавить новый элемент</button>
+//       </div>
+//   );
+// }
+
+//76
+// const initNotes = [
+//   {
+//       id: 'GYi9G_uC4gBF1e2SixDvu',
+//       prop1: 'value11',
+//       prop2: 'value12',
+//       prop3: 'value13',
+//   },
+//   {
+//       id: 'IWSpfBPSV3SXgRF87uO74',
+//       prop1: 'value21',
+//       prop2: 'value22',
+//       prop3: 'value23',
+//   },
+//   {
+//       id: 'JAmjRlfQT8rLTm5tG2m1L',
+//       prop1: 'value31',
+//       prop2: 'value32',
+//       prop3: 'value33',
+//   },
+// ];
+
+// function App() {
+//   const [notes, setNotes] = useState(initNotes);
+//   const [inputValues, setInputValues] = useState({
+//       prop1: '',
+//       prop2: '',
+//       prop3: '',
+//   });
+
+//   const handleDelete = (id) => {
+//       setNotes(notes.filter((note) => note.id !== id));
+//   };
+
+//   const handleInputChange = (e) => {
+//       setInputValues({
+//           ...inputValues,
+//           [e.target.name]: e.target.value,
+//       });
+//   };
+
+//   const handleFillInputs = (id) => {
+//       const foundNote = notes.find((note) => note.id === id);
+//       setInputValues({
+//           prop1: foundNote.prop1,
+//           prop2: foundNote.prop2,
+//           prop3: foundNote.prop3,
+//       });
+//   };
+
+//   const handleUpdateNote = (id) => {
+//       setNotes(
+//           notes.map((note) => {
+//               if (note.id === id) {
+//                   return {
+//                       ...note,
+//                       prop1: inputValues.prop1,
+//                       prop2: inputValues.prop2,
+//                       prop3: inputValues.prop3,
+//                   };
+//               }
+//               return note;
+//           })
+//       );
+//   };
+
+//   return (
+//       <div>
+//           <ul>
+//               {notes.map((note) => (
+//                   <li key={note.id}>
+//                       <span>{note.prop1}</span>
+//                       <span>{note.prop2}</span>
+//                       <span>{note.prop3}</span>
+//                       <button onClick={() => handleDelete(note.id)}>Удалить</button>
+//                       <button onClick={() => handleFillInputs(note.id)}>Заполнить инпуты</button>
+//                   </li>
+//               ))}
+//           </ul>
+//           <input
+//               type="text"
+//               name="prop1"
+//               value={inputValues.prop1}
+//               onChange={handleInputChange}
+//               placeholder="Введите значение для prop1"
+//           />
+//           <input
+//               type="text"
+//               name="prop2"
+//               value={inputValues.prop2}
+//               onChange={handleInputChange}
+//               placeholder="Введите значение для prop2"
+//           />
+//           <input
+//               type="text"
+//               name="prop3"
+//               value={inputValues.prop3}
+//               onChange={handleInputChange}
+//               placeholder="Введите значение для prop3"
+//           />
+//           <button onClick={() => handleUpdateNote}>Обновить элемент</button>
+//       </div>
+//   );
+// }
+
+//77
+const initNotes = [
+  {
+      id: 1,
+      name: 'name1',
+      desc: 'long description 1',
+      show: false,
+  },
+  {
+      id: 2,
+      name: 'name2',
+      desc: 'long description 2',
+      show: false,
+  },
+  {
+      id: 3,
+      name: 'name3',
+      desc: 'long description 3',
+      show: false,
+  },
+];
 
 function App() {
-  const [date, setDate] = useState(initDate);
+  const [notes, setNotes] = useState(initNotes);
 
-  function getDayOfWeek(year, month, day) {
-      const dateObject = new Date(year, month - 1, day);
-      const options = { weekday: 'long' };
-      return new Intl.DateTimeFormat('ru-RU', options).format(dateObject);
-  }
+  const toggleDescription = (id) => {
+      setNotes(
+          notes.map((note) =>
+              note.id === id ? { ...note, show: !note.show } : note
+          )
+      );
+  };
 
   return (
       <div>
-          <p>Год: {date.year}</p>
-          <p>Месяц: {date.month}</p>
-          <p>День: {date.day}</p>
-          <p>День недели: {getDayOfWeek(date.year, date.month, date.day)}</p>
+          {notes.map((note) => (
+              <div key={note.id}>
+                  <p>
+                      {note.name},{' '}
+                      <i style={{ display: note.show ? 'block' : 'none' }}>
+                          {note.desc}
+                      </i>
+                  </p>
+                  <button onClick={() => toggleDescription(note.id)}>
+                      {note.show ? 'Скрыть описание' : 'Показать описание'}
+                  </button>
+              </div>
+          ))}
       </div>
   );
 }
