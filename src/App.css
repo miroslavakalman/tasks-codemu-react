@@ -1,3 +1,9 @@
+.class1{
+    border: none;
+    border-radius: 10px;
+    padding: 4px;
+    background-color: #61dafb;
+}
 .App {
   text-align: center;
 }

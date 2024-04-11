@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import { styles } from "./styles";	
+import styled from 'styled-components';
+
 
 import React, { useState }from 'react';
 
@@ -1589,43 +1592,125 @@ import React, { useState }from 'react';
 // ProductField: в зависимости от того, как он реализован, он может быть как презентационным, так и контейнерным компонентом. Если ProductField просто отображает какое-то поле продукта (например, его имя или цену), то это презентационный компонент. Если ProductField содержит логику для редактирования или изменения данных, то он может быть компонентом-контейнером.
 
 //97
+// function App() {
+//   const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
+//   const [editNum, setEditNum] = useState(null);
+//   const [value, setValue] = useState('');
+
+//   function startEdit(index) {
+//     setEditNum(index);
+//     setValue(notes[index]);
+//   }
+
+//   function changeItem(event) {
+//     setValue(event.target.value);
+//   }
+
+//   function saveItem() {
+//     const editedNotes = [...notes];
+//     editedNotes[editNum] = value;
+//     setNotes(editedNotes);
+//     setEditNum(null);
+//   }
+
+//   const result = notes.map((note, index) => (
+//     <p key={index} onClick={() => startEdit(index)}>
+//       {note}
+//     </p>
+//   ));
+
+//   return (
+//     <div>
+//       {result}
+//       <input
+//         value={editNum !== null ? value : ''}
+//         onChange={changeItem}
+//         onBlur={saveItem}
+//       />
+//     </div>
+//   );
+// }
+
+//Стилизация
+//98
+// function App() {
+// 	return (
+// 		<div>
+// 			<button class="class1">click</button>
+//       <br />
+//       <button class="class1">click</button>
+// 		</div>
+// 	);
+// }
+
+//99
+// function App() {
+//   const class1 = {
+// 		border: 'none',
+//     borderRadius: '10px',
+//     padding: '4px',
+//     backgroundColor: '#61dafb',
+// 	};
+
+// 	return (
+// 		<div>
+// 			<button style={class1}>click</button>
+//       <br />
+//       <button style={class1}>click</button>
+// 		</div>
+// 	);
+// }
+
+//100
+// function App() {
+//     const class1 = {
+//   		border: 'none',
+//       borderRadius: '10px',
+//       padding: '4px',
+//       backgroundColor: '#61dafb',
+//   	};
+  
+//   	return (
+//   		<div>
+//   			<button style={styles.class1}>click</button>
+//         <br />
+//         <button style={styles.class1}>click</button>
+//   		</div>
+//   	);
+//   }
+  
+//102
+// function App() {
+//     const br = 'none';
+//     const brR = '10px';
+//     const pd = '4px';
+//     const bc = '#61dafb';
+
+//   	return (
+//   		<div>
+//   			<button style={{ border: br, borderRadius: brR, padding: pd, backgroundColor: bc }}>click</button>
+//         <br />
+//         <button style={{ border: br, borderRadius: brR, padding: pd, backgroundColor: bc }}>click</button>
+//   		</div>
+//   	);
+//   }
+
+//103
 function App() {
-  const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
-  const [editNum, setEditNum] = useState(null);
-  const [value, setValue] = useState('');
+  const Button1 = styled.button`
+  border: none;
+  border-radius: 10px;
+  padding: 4px;
+  background-color: #61dafb;
+`;
 
-  function startEdit(index) {
-    setEditNum(index);
-    setValue(notes[index]);
-  }
-
-  function changeItem(event) {
-    setValue(event.target.value);
-  }
-
-  function saveItem() {
-    const editedNotes = [...notes];
-    editedNotes[editNum] = value;
-    setNotes(editedNotes);
-    setEditNum(null);
-  }
-
-  const result = notes.map((note, index) => (
-    <p key={index} onClick={() => startEdit(index)}>
-      {note}
-    </p>
-  ));
-
-  return (
-    <div>
-      {result}
-      <input
-        value={editNum !== null ? value : ''}
-        onChange={changeItem}
-        onBlur={saveItem}
-      />
-    </div>
-  );
+	return (
+		<div>
+			<Button1>click</Button1>
+      <br />
+      <Button1>click</Button1>
+		</div>
+	);
 }
-
+  
 export default App;
