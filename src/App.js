@@ -1405,56 +1405,227 @@ import React, { useState }from 'react';
 // }
 
 //77
-const initNotes = [
-  {
-      id: 1,
-      name: 'name1',
-      desc: 'long description 1',
-      show: false,
-  },
-  {
-      id: 2,
-      name: 'name2',
-      desc: 'long description 2',
-      show: false,
-  },
-  {
-      id: 3,
-      name: 'name3',
-      desc: 'long description 3',
-      show: false,
-  },
-];
+// const initNotes = [
+//   {
+//       id: 1,
+//       name: 'name1',
+//       desc: 'long description 1',
+//       show: false,
+//   },
+//   {
+//       id: 2,
+//       name: 'name2',
+//       desc: 'long description 2',
+//       show: false,
+//   },
+//   {
+//       id: 3,
+//       name: 'name3',
+//       desc: 'long description 3',
+//       show: false,
+//   },
+// ];
 
+// function App() {
+//   const [notes, setNotes] = useState(initNotes);
+
+//   const toggleDescription = (id) => {
+//       setNotes(
+//           notes.map((note) =>
+//               note.id === id ? { ...note, show: !note.show } : note
+//           )
+//       );
+//   };
+
+//   return (
+//       <div>
+//           {notes.map((note) => (
+//               <div key={note.id}>
+//                   <p>
+//                       {note.name},{' '}
+//                       <i style={{ display: note.show ? 'block' : 'none' }}>
+//                           {note.desc}
+//                       </i>
+//                   </p>
+//                   <button onClick={() => toggleDescription(note.id)}>
+//                       {note.show ? 'Скрыть описание' : 'Показать описание'}
+//                   </button>
+//               </div>
+//           ))}
+//       </div>
+//   );
+// }
+
+
+//Компоненты
+//79
+// import User from './User';
+
+// function App() {
+// 	return <div>
+// 		<User />
+// 	</div>;
+// }
+
+//80
+// import User from './User';
+
+// function App() {
+// 	return <div>
+// 		<User />
+//     <User />
+//     <User />
+// 	</div>;
+// }
+
+//81
+// import Employee from './Employee'
+
+// function App() {
+//   return (
+//       <div>
+//           <Employee />
+//       </div>
+//   );
+// }
+
+//83
+// const prods = [
+//   { id: 1, name: 'product1', cost: 100 },
+//   { id: 2, name: 'product2', cost: 200 },
+//   { id: 3, name: 'product3', cost: 300 },
+// ];
+
+// function App() {
+//   return (
+//       <div>
+//           <Product name={prods[0].name} cost={prods[0].cost} />
+//           <Product name={prods[1].name} cost={prods[1].cost} />
+//           <Product name={prods[2].name} cost={prods[2].cost} />
+//       </div>
+//   );
+// }
+
+// function Product({ name, cost }) {
+//   return (
+//       <div>
+//           <p>
+//               Name: {name}, Cost: {cost}
+//           </p>
+//       </div>
+//   );
+// }
+
+//2
+// const users = [
+//   { id: 1, name: 'user1', surn: 'surn1', age: 30 },
+//   { id: 2, name: 'user2', surn: 'surn2', age: 31 },
+//   { id: 3, name: 'user3', surn: 'surn3', age: 32 },
+// ];
+
+// function App() {
+//   return (
+//       <div>
+//           <table>
+//               <thead>
+//                   <tr>
+//                       <th>Name</th>
+//                       <th>Surname</th>
+//                       <th>Age</th>
+//                   </tr>
+//               </thead>
+//               <tbody>
+//                   {users.map((user) => (
+//                       <User key={user.id} name={user.name} surn={user.surn} age={user.age} />
+//                   ))}
+//               </tbody>
+//           </table>
+//       </div>
+//   );
+// }
+
+// function User({ name, surn, age }) {
+//   return (
+//       <tr>
+//           <td>{name}</td>
+//           <td>{surn}</td>
+//           <td>{age}</td>
+//       </tr>
+//   );
+// }
+
+//84
+// const users = [
+//   { id: 1, name: 'user1', surn: 'surn1', age: 30 },
+//   { id: 2, name: 'user2', surn: 'surn2', age: 31 },
+//   { id: 3, name: 'user3', surn: 'surn3', age: 32 },
+// ];
+
+// function App() {
+//   const usersList = users.map((user) => (
+//       <User key={user.id} name={user.name} surn={user.surn} age={user.age} />
+//   ));
+
+//   return <div>{usersList}</div>;
+// }
+
+// function User({ name, surn, age }) {
+//   return (
+//       <div>
+//           <p>
+//               Name: {name}, Surname: {surn}, Age: {age}
+//           </p>
+//       </div>
+//   );
+// }
+
+//Концепции
+//92
+//isEdit - стейт, elem - переменная, data - константа
+
+//93
+// Products: компонент-контейнер. Он содержит стейт с данными о продуктах и использует дочерний презентационный компонент Product для их отображения.
+// Product: презентационный компонент. Он принимает данные о продукте через пропсы и отображает их в виде HTML-элементов.
+// ProductField: в зависимости от того, как он реализован, он может быть как презентационным, так и контейнерным компонентом. Если ProductField просто отображает какое-то поле продукта (например, его имя или цену), то это презентационный компонент. Если ProductField содержит логику для редактирования или изменения данных, то он может быть компонентом-контейнером.
+
+//97
 function App() {
-  const [notes, setNotes] = useState(initNotes);
+  const [notes, setNotes] = useState([1, 2, 3, 4, 5]);
+  const [editNum, setEditNum] = useState(null);
+  const [value, setValue] = useState('');
 
-  const toggleDescription = (id) => {
-      setNotes(
-          notes.map((note) =>
-              note.id === id ? { ...note, show: !note.show } : note
-          )
-      );
-  };
+  function startEdit(index) {
+    setEditNum(index);
+    setValue(notes[index]);
+  }
+
+  function changeItem(event) {
+    setValue(event.target.value);
+  }
+
+  function saveItem() {
+    const editedNotes = [...notes];
+    editedNotes[editNum] = value;
+    setNotes(editedNotes);
+    setEditNum(null);
+  }
+
+  const result = notes.map((note, index) => (
+    <p key={index} onClick={() => startEdit(index)}>
+      {note}
+    </p>
+  ));
 
   return (
-      <div>
-          {notes.map((note) => (
-              <div key={note.id}>
-                  <p>
-                      {note.name},{' '}
-                      <i style={{ display: note.show ? 'block' : 'none' }}>
-                          {note.desc}
-                      </i>
-                  </p>
-                  <button onClick={() => toggleDescription(note.id)}>
-                      {note.show ? 'Скрыть описание' : 'Показать описание'}
-                  </button>
-              </div>
-          ))}
-      </div>
+    <div>
+      {result}
+      <input
+        value={editNum !== null ? value : ''}
+        onChange={changeItem}
+        onBlur={saveItem}
+      />
+    </div>
   );
 }
-
 
 export default App;
