@@ -1696,21 +1696,71 @@ import React, { useState }from 'react';
 //   }
 
 //103
-function App() {
-  const Button1 = styled.button`
-  border: none;
-  border-radius: 10px;
-  padding: 4px;
-  background-color: #61dafb;
-`;
+// function App() {
+//   const Button1 = styled.button`
+//   border: none;
+//   border-radius: 10px;
+//   padding: 4px;
+//   background-color: #61dafb;
+// `;
 
-	return (
-		<div>
-			<Button1>click</Button1>
-      <br />
-      <Button1>click</Button1>
-		</div>
-	);
-}
+// 	return (
+// 		<div>
+// 			<Button1>click</Button1>
+//       <br />
+//       <Button1>click</Button1>
+// 		</div>
+// 	);
+// }
   
+//Хуки
+//114
+// import { useEffect } from 'react';
+// function App() {
+//   useEffect(() => {
+// 		document.title = 'Hello, World';
+// 	}, []);
+// 	return (
+// 		<div>
+// 			<h1>React App</h1>
+// 		</div>
+// 	);
+// }
+
+//115
+// import { useEffect } from 'react';
+
+// function App() {
+//     const [username, setUsername] = useState('');
+
+//     useEffect(() => {
+//         localStorage.setItem('username', username);
+//     }, [username]);
+
+//     function handleUsernameChange(event) {
+//         setUsername(event.target.value);
+//     }
+
+//     return (
+//         <div>
+//             <h1>Hello, {username || 'Guest'}</h1>
+//             <input 
+//                 type="text" 
+//                 value={username} 
+//                 onChange={handleUsernameChange} 
+//             />
+//         </div>
+//     );
+// }
+
+//118
+import { MyContext } from './MyContext.js';
+function App(){
+  return (
+    <div>
+      <input />
+      <button>focus</button>
+    </div>
+  );  
+}
 export default App;
